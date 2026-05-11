@@ -11,7 +11,8 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3000',
+  // origin: 'http://localhost:3000',
+  origin: 'https://project-kc3pu-git-main-rohits-projects-8275ef7e.vercel.app/',
   credentials: true,
 }));
 app.use(express.json());
