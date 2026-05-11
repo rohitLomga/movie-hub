@@ -10,9 +10,20 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://project-kc3pu-git-main-rohits-projects-8275ef7e.vercel.app',
+  'https://project-kc3pu-pv6uytpf6-rohits-projects-8275ef7e.vercel.app'
+];
+
 app.use(cors({
-  // origin: 'http://localhost:3000',
-  origin: 'https://project-kc3pu-git-main-rohits-projects-8275ef7e.vercel.app/',
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 app.use(express.json());
