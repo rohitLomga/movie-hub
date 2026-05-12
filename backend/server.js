@@ -13,7 +13,8 @@ const PORT = process.env.PORT || 5000;
 const allowedOrigins = [
   'http://localhost:3000',
   'https://project-kc3pu-git-main-rohits-projects-8275ef7e.vercel.app',
-  'https://project-kc3pu-pv6uytpf6-rohits-projects-8275ef7e.vercel.app'
+  'https://project-kc3pu-pv6uytpf6-rohits-projects-8275ef7e.vercel.app',
+  'https://project-kc3pu.vercel.app'
 ];
 
 app.use(cors({
