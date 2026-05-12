@@ -37,4 +37,4 @@ jobs:
 
       - name: Backend Syntax Check
         working-directory: ./backend
-        run: node --check index.js
+        run: node --check index./backend/server.js
