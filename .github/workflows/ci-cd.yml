@@ -6,25 +6,20 @@ on:
       - main
 
 jobs:
-
   build-and-test:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [20]
 
     steps:
 
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # FRONTEND
-
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 20
+
+      # FRONTEND
 
       - name: Install Frontend Dependencies
         working-directory: ./frontend
@@ -40,6 +35,6 @@ jobs:
         working-directory: ./backend
         run: npm install
 
-      - name: Check Backend
+      - name: Backend Syntax Check
         working-directory: ./backend
-        run: npm run start
+        run: node --check index.js
