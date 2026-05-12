@@ -14,11 +14,11 @@ function MoviesContent() {
   const [movies, setMovies] = useState([]);
   const [genres, setGenres] = useState([]);
   const [loading, setLoading] = useState(true);
-  
+
   const [search, setSearch] = useState(initialSearch);
   const [genre, setGenre] = useState(initialGenre);
   const [sort, setSort] = useState('rating_desc');
-  
+
   const [pagination, setPagination] = useState({ page: 1, totalPages: 1 });
   const [showFilters, setShowFilters] = useState(false);
 
@@ -28,7 +28,7 @@ function MoviesContent() {
       let url = `/movies?page=${page}&limit=12&sort=${sort}`;
       if (search) url += `&search=${encodeURIComponent(search)}`;
       if (genre) url += `&genre=${encodeURIComponent(genre)}`;
-      
+
       const { data } = await api.get(url);
       setMovies(data.movies);
       setGenres(data.genres);
@@ -67,7 +67,7 @@ function MoviesContent() {
           <h1 className="font-outfit text-4xl font-bold text-white mb-2">Discover Movies</h1>
           <p className="text-slate-400">Find your next favorite film</p>
         </div>
-        
+
         <div className="w-full md:w-auto flex gap-3">
           <form onSubmit={handleSearchSubmit} className="relative flex-grow md:w-72">
             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -76,12 +76,12 @@ function MoviesContent() {
             <input
               type="text"
               className="input-field pl-10 py-2.5"
-              placeholder="Search movies..."
+              placeholder="Search movies (Nahi karenge)..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
             />
           </form>
-          <button 
+          <button
             onClick={() => setShowFilters(!showFilters)}
             className="btn-secondary px-3"
             title="Filters"
@@ -103,11 +103,11 @@ function MoviesContent() {
               <X className="w-3 h-3" /> Clear all
             </button>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label className="block text-sm font-medium text-slate-300 mb-2">Genre</label>
-              <select 
+              <select
                 className="input-field appearance-none"
                 value={genre}
                 onChange={(e) => setGenre(e.target.value)}
@@ -120,7 +120,7 @@ function MoviesContent() {
             </div>
             <div>
               <label className="block text-sm font-medium text-slate-300 mb-2">Sort By</label>
-              <select 
+              <select
                 className="input-field appearance-none"
                 value={sort}
                 onChange={(e) => setSort(e.target.value)}
@@ -147,7 +147,7 @@ function MoviesContent() {
               <MovieCard key={movie.id} movie={movie} />
             ))}
           </div>
-          
+
           {/* Pagination */}
           {pagination.totalPages > 1 && (
             <div className="flex justify-center items-center gap-2 mt-12">
