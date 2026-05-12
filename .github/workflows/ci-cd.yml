@@ -42,4 +42,4 @@ jobs:
 
       - name: Check Backend
         working-directory: ./backend
-        run: npm run start
+        run: npm run lint
