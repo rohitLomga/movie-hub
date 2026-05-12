@@ -28,17 +28,17 @@ export default function Footer() {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-white font-semibold mb-4">Explore</h3>
             <ul className="space-y-2">
-              <li><Link href="/movies" className="text-slate-400 hover:text-indigo-400 text-sm transition-colors">All Movies</Link></li>
+              <li><Link href="/movies" className="text-slate-400 hover:text-indigo-400 text-sm transition-colors">All Movies (Updated)</Link></li>
               <li><Link href="/movies?genre=action" className="text-slate-400 hover:text-indigo-400 text-sm transition-colors">Action</Link></li>
               <li><Link href="/movies?genre=drama" className="text-slate-400 hover:text-indigo-400 text-sm transition-colors">Drama</Link></li>
               <li><Link href="/movies?genre=sci-fi" className="text-slate-400 hover:text-indigo-400 text-sm transition-colors">Sci-Fi</Link></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-white font-semibold mb-4">Account</h3>
             <ul className="space-y-2">
@@ -47,7 +47,7 @@ export default function Footer() {
             </ul>
           </div>
         </div>
-        
+
         <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-slate-500 text-sm">
             &copy; {new Date().getFullYear()} MovieHub. All rights reserved.
